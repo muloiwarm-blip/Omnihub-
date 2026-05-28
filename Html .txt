@@ -1,0 +1,513 @@
+### style.css
+```css
+:root {
+    --primary-color: #111111;
+    --secondary-color: #555555;
+    --background-color: #fcfcfc;
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --ad-background: #f0f0f0;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header and Navigation */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Ad Spaces */
+.ad-space {
+    background-color: var(--ad-background);
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-header {
+    width: 100%;
+    height: 90px;
+    margin: 20px 0;
+}
+
+.ad-sidebar {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.ad-inline {
+    width: 100%;
+    height: 90px;
+    margin: 20px 0;
+}
+
+/* Layout */
+.layout-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .layout-wrapper {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Article Grid */
+.article-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 600px) {
+    .article-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+article {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+article h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+article p {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+/* Author Bio */
+.author-bio {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Sidebar */
+aside {
+    display: flex;
+    flex-direction: column;
+}
+
+.widget {
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.widget h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    font-family: var(--font-stack);
+}
+
+button {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--secondary-color);
+}
+
+```
+### index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longevity Hub | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Longevity Hub",
+      "description": "Practical insights on personalized longevity and health optimization.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Longevity Hub"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Longevity Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="ad-space ad-header">Google AdSense Banner Slot</div>
+
+        <div class="layout-wrapper">
+            <main>
+                <div class="article-grid">
+                    <article>
+                        <h2>Guide to Tracking Blood Glucose Trends Using Wearable Sensors</h2>
+                        <p>Continuous glucose monitors track your blood sugar levels in real time. Apply the sensor to the back of your arm. Pair the sensor with your smartphone app. Check your readings before and after meals. Note spikes after eating specific foods. Eliminate foods that cause rapid spikes. Maintain stable levels to optimize daily energy.</p>
+                        <div class="ad-space ad-inline">In-Content Ad Slot</div>
+                        <div class="author-bio">
+                            <div class="author-info">
+                                <h4>Muimeleli Muloiwa</h4>
+                                <p>Health Optimization Researcher</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article>
+                        <h2>How to Design a Clean Sleep Environment for Maximum Cellular Recovery</h2>
+                        <p>Your bedroom environment dictates your sleep quality. Lower the room temperature to 18 degrees Celsius. Block all light sources with blackout curtains. Remove electronic devices from your bedside table. Noise isolation improves deep sleep cycles. Clean air filters reduce respiratory stress. Quality sleep accelerates cellular repair.</p>
+                        <div class="author-bio">
+                            <div class="author-info">
+                                <h4>Muimeleli Muloiwa</h4>
+                                <p>Health Optimization Researcher</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article>
+                        <h2>Simple Rules for Interpreting Personalized Genetic Reports at Home</h2>
+                        <p>Personal genetic tests reveal specific health traits. Download your raw DNA data file. Upload the file to trusted third-party analysis platforms. Focus on actionable genetic markers like vitamin absorption rates or caffeine sensitivity. Do not panic over single gene variants. Consult your healthcare provider before changing your medical routine. Use data to customize your nutrition plan.</p>
+                        <div class="author-bio">
+                            <div class="author-info">
+                                <h4>Muimeleli Muloiwa</h4>
+                                <p>Health Optimization Researcher</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </main>
+
+            <aside>
+                <div class="ad-space ad-sidebar">Google AdSense Sidebar Slot</div>
+                <div class="widget">
+                    <h3>About The Hub</h3>
+                    <p>You can optimize your health span using practical data. We provide actionable guides based on current science.</p>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Longevity Hub. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+```
+### about.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Longevity Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Longevity Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="layout-wrapper">
+            <main>
+                <section class="widget">
+                    <h2>Our Mission</h2>
+                    <p>We provide clear and actionable data on personalized health optimization. You deserve direct information to control your health span. Our content eliminates speculation and focuses on practical daily interventions.</p>
+                </section>
+
+                <section class="widget">
+                    <h2>Editorial Guidelines</h2>
+                    <p>Every article undergoes strict validation before publication. We rely on verified biometrics and clinical data. Authors must cite primary sources for health claims. We update content regularly when new biological discoveries occur.</p>
+                </section>
+            </main>
+
+            <aside>
+                <div class="ad-space ad-sidebar">Google AdSense Sidebar Slot</div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Longevity Hub. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+```
+### contact.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Longevity Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Longevity Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="layout-wrapper">
+            <main>
+                <section class="widget">
+                    <h2>Contact Our Team</h2>
+                    <p>Send your questions regarding editorial content or advertising opportunities.</p>
+                    <form action="https://formspree.io/f/placeholder" method="POST">
+                        <div>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div>
+                            <label for="email">Your Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div>
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit">Submit Message</button>
+                    </form>
+                </section>
+            </main>
+
+            <aside>
+                <div class="ad-space ad-sidebar">Google AdSense Sidebar Slot</div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Longevity Hub. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+```
+### privacy.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Longevity Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Longevity Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main style="margin-top: 20px;">
+            <section class="widget">
+                <h2>Privacy Policy</h2>
+                <p>Your privacy is important. This document outlines the types of personal data we collect and how we use it.</p>
+                
+                <h3>Third-Party Cookies and Advertising</h3>
+                <p>This website partners with third-party networks including Google AdSense to serve advertisements. Google uses cookies to serve ads based on your prior visits to this website or other websites. Google uses the DART cookie to enable advertising target tracking based on your browsing history.</p>
+                
+                <h3>Opting Out</h3>
+                <p>You can opt out of personalized advertising by visiting your Google Ads Settings. Alternatively, you can block cookie usage via your web browser configuration options.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Longevity Hub. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+```
+### terms.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Longevity Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Longevity Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main style="margin-top: 20px;">
+            <section class="widget">
+                <h2>Terms of Service</h2>
+                <p>Welcome to Longevity Hub. By accessing this website, you agree to comply with these terms.</p>
+                
+                <h3>Use of Content</h3>
+                <p>All content provided on this website serves educational purposes only. Do not interpret this information as professional medical advice. Always consult a healthcare professional before altering your biological routine or starting metric tracking.</p>
+                
+                <h3>Limitations of Liability</h3>
+                <p>We do not guarantee specific health outcomes from following our information</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Longevity Hub. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+```
