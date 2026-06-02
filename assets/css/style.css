@@ -1,106 +1,144 @@
-/* Base Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
+
+:root {
+    --bg-main: #050505;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-hover-bg: rgba(255, 255, 255, 0.06);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent-glow: #00f2fe;
+    --accent-btn: #ffffff;
 }
 
-.hero {
-    text-align: center;
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Ambient Visual Glow Elements */
+.glow-1, .glow-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.05) 0%, rgba(0,0,0,0) 70%);
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.glow-2 {
+    top: 60%;
+    right: -100px;
+    left: auto;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.03) 0%, rgba(0,0,0,0) 70%);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Stats and Badges */
-.stats-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
+.premium-header {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.badges {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
+.premium-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin-bottom: 8px;
 }
 
-.github-cards {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
 }
 
-.github-cards img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Bento Grid Layout */
-.bento-grid {
+/* Structural Grid Construction */
+.premium-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    gap: 24px;
 }
 
 @media (min-width: 768px) {
-    .bento-grid {
+    .premium-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    .item-large {
+    .card-tall {
+        grid-row: span 2;
+    }
+    .card-wide {
         grid-column: span 2;
-        grid-row: span 2;
-    }
-    .item-medium {
-        grid-column: span 1;
-        grid-row: span 2;
     }
 }
 
-/* Bento Item Styling and Animations */
-.bento-item {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    border-radius: 12px;
-    padding: 24px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+/* Liquid Glassmorphism Card Formula */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
-.bento-item:hover {
-    transform: translateY(-4px);
-    border-color: #58a6ff;
+.glass-card:hover {
+    background: var(--card-hover-bg);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
 }
 
-.bento-item h2 {
+.glass-card h3 {
     margin-top: 0;
-    color: #f0f6fc;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
 }
 
-/* Media and Buttons */
-.preview-img {
-    width: 100%;
-    border-radius: 6px;
-    margin-top: 10px;
+.glass-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-.btn {
+/* Component Details */
+.badge {
     display: inline-block;
-    background-color: #238636;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    margin-top: 15px;
-    transition: background-color 0.2s;
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--accent-glow);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 16px;
 }
 
-.btn:hover {
-    background-color: #2ea043;
+.premium-btn {
+    display: inline-block;
+    background: var(--accent-btn);
+    color: var(--bg-main);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 16px;
+    transition: opacity 0.2s ease;
+}
+
+.premium-btn:hover {
+    opacity: 0.9;
 }
